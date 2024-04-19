@@ -4,7 +4,7 @@ const mainArrow = document.getElementById('main-arrow');
 
 const mainPages = Array.from(document.getElementsByClassName('home-page'));
 
-const mainBg = document.querySelector('.home');
+const mainBg = document.querySelectorAll('.slide-img');
 
 const mainContainer = document.querySelector('.home-container');
 
@@ -12,30 +12,18 @@ let index = 1;
 
 mainArrow.addEventListener('click', mainSlide);
 
-function preload(arrayOfImages) {
-    $(arrayOfImages).each(function(){
-        $('<img/>')[0].src = this;
-    });
-}
-
-preload([
-    'media/bg/slide-1.jpg',
-    'media/bg/slide-2.jpg',
-    'media/bg/slide-3.jpg'
-]);
-
-$(function(){
-    $('body').show();
-});
-
 function mainSlide(){
+
+	console.log(mainBg)
+
 	if (index >= mainPages.length) {
 		index = 1;
 	}else{
 		index++
 	}
 
-		console.log(index)
+
+	console.log(index)
 	mainPages.forEach((element) => {
 		element.classList.remove('active');
 	})
@@ -43,11 +31,14 @@ function mainSlide(){
 	mainContainer.style.background = 'rgba(13, 59, 102, 1)';
 
 	setTimeout(() => {
-		mainBg.classList.remove(mainBg.classList.item(1));
-		mainBg.classList.add(`index-${index}`)
 		document.querySelector(`[data-index="${index}"]`).classList.add('active');
 		mainContainer.style.background = 'rgba(13, 59, 102, 0.5)';
-		console.log(mainBg.style.background)
+		mainBg.forEach(element => {
+		element.classList.remove('active')
+		if (element.classList.contains(`img-${index}`)){
+			element.classList.add('active')
+		}
+	})
 	}, '700')
 	
 }
