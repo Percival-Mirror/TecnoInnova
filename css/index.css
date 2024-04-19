@@ -6,6 +6,7 @@
 }
 
 body{
+	display: none;
 	background: linear-gradient(0deg, rgba(13, 59, 102, 0.40) 0%, rgba(13, 59, 102, 0.40) 100%), #000;
 }
 
