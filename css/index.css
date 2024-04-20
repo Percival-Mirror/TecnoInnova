@@ -329,12 +329,19 @@ body{
 }
 
 h2{
+	left: 0px;
 	font-size: 2.5rem;
 	font-family: 'Homenaje';
 	color: white;
 	padding: 25px 0px;
 	position: relative;
 	display: inline-block;
+	transition-duration: 700ms;
+}
+
+h2.unactive{
+	left: -50px;
+	opacity: 0;
 }
 
 .services .container h2 hr{
@@ -343,22 +350,44 @@ h2{
 	opacity: 1;
 }
 
-.services .container h2 hr:nth-child(1){
+.services-line:nth-child(1){
 	position: absolute;
 	width: 30%;
 	height: 5px;
 	left: 0;
 	bottom: 0;
 	border: none;
+	transition-timing-function: linear;
+	transition-delay: 650ms;
+	transition-duration: 300ms;
 }
 
-.services .container h2 hr:nth-child(2){
+.services-line:nth-child(2){
 	position: absolute;
 	width: 100%;
 	height: 2.5px;
 	left: 0;
 	bottom: 0;
 	border: none;
+	transition-delay: 650ms;
+	transition-duration: 600ms;
+}
+
+.services-line.unactive{
+	width: 0%;
+}
+
+.services-container{
+	position: relative;
+	opacity: 1;
+	bottom: 0px;
+	transition-duration: 800ms;
+	transition-delay: 600ms;
+}
+
+.services-container.unactive{
+	opacity: 0;
+	bottom: -50px;
 }
 
 .service{
@@ -457,6 +486,15 @@ h2{
 .about-info > div{
 	display: flex;
 	align-items: center;
+	position: relative;
+	bottom: 0;
+	opacity: 1;
+	transition-duration: 800ms;
+}
+
+.about-info > div.unactive{
+	bottom: -30px;
+	opacity: 0;
 }
 
 .about-info > div p {
@@ -474,9 +512,40 @@ h2{
 	margin-left: 5px;
 }
 
+.about-info h2{
+	position: relative;
+	bottom: 0px;
+	opacity: 1;
+	transition-duration: 800ms;
+}
+
+.about-info h2.unactive{
+	bottom: -30px;
+	opacity: 0;
+}
+
+.about-info p{
+	opacity: 1;
+	transition: 500ms;
+	transition-delay: 400ms;
+}
+
+.about-info p.unactive{
+	opacity: 0;
+}
+
 .about-img{
 	display: flex;
 	justify-content: center;
+	position: relative;
+	bottom: 0;
+	opacity: 1;
+	transition-duration: 800ms;
+}
+
+.about-img.unactive{
+	bottom: -50px;
+	opacity: 0;
 }
 
 .about-img img{
@@ -493,6 +562,14 @@ h2{
 	justify-content: center;
 	position: relative;
 	align-items: center;
+	transition-duration: 600ms;
+	bottom: 0;
+	opacity: 1;
+}
+
+.clients-title.unactive{
+	opacity: 0;
+	bottom: -40px;
 }
 
 .clients-title svg{
@@ -529,6 +606,13 @@ h2{
 	overflow: hidden;
 	-webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
 	mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+	transition-duration: 600ms;
+	transition-delay: 300ms;
+	opacity: 1;
+}
+
+.clients-container.unactive{
+	opacity: 0;
 }
 
 .clients-wrapper{
